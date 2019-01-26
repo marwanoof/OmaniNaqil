@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+              android:layout_height="match_parent" android:orientation="vertical">
+
+    <TextView
+            android:text="اختر مكان نقل الحمولة"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/title_custom_txt" android:gravity="center" android:textSize="18sp"
+            android:textColor="@color/garyBlue" android:fontFamily="@font/sky"/>
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp" android:id="@+id/view6" android:background="@color/org" android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"/>
+    <Button
+            android:text="داخل السلطنة"
+            android:layout_width="200dp"
+            android:layout_height="50dp" android:id="@+id/inBtn" android:background="@drawable/btngrayblue" android:layout_gravity="center"
+            android:textSize="18sp" android:textColor="@android:color/white" android:fontFamily="@font/sky" android:layout_marginTop="20dp"/>
+    <Button
+            android:text="خارج السلطنة"
+            android:layout_width="200dp"
+            android:layout_height="50dp" android:id="@+id/outBtn" android:background="@drawable/btngrayblue" android:layout_gravity="center"
+            android:textSize="18sp" android:textColor="@android:color/white" android:fontFamily="@font/sky" android:layout_marginTop="20dp"/>
+    <Button
+            android:text="مناطق امتياز"
+            android:layout_width="200dp"
+            android:layout_height="50dp" android:id="@+id/specialBtn" android:background="@drawable/btngrayblue" android:layout_gravity="center"
+            android:textSize="18sp" android:textColor="@android:color/white" android:fontFamily="@font/sky" android:layout_marginTop="20dp"/>
+</LinearLayout>

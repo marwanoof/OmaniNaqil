@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#084dd6</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="mainColor">#00aeef</color>
+    <color name="garyBlue">#2C2F45</color>
+    <color name="org">#F36823</color>
+    <color name="pink">#b366d9</color>
+    <color name="gr">#49ce8a</color>
+    <color name="orgl">#FF9000</color>
+    <color name="yel">#e3cf0d</color>
+
+</resources>

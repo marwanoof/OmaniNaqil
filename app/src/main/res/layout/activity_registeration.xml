@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Registeration" android:background="@drawable/mainbg">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/menubar_layout">
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:id="@+id/title_bar_mainmenu"
+                android:background="@color/garyBlue"
+                android:layout_alignParentTop="true"
+        />
+        <TextView
+                android:text="الناقل العماني"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView6"
+                android:textColor="@android:color/white" android:textSize="24sp" android:fontFamily="@font/sky"
+                android:layout_centerInParent="true"/>
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/mainlogo" android:layout_alignParentEnd="true"
+                android:id="@+id/mainlogo" android:background="@android:color/transparent"
+                android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/mainmenu" android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true" android:id="@+id/menu" android:background="@android:color/transparent"
+                android:layout_alignParentLeft="true" android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_below="@+id/menubar_layout"
+            android:layout_marginTop="20dp" android:paddingRight="40dp" android:paddingLeft="40dp">
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:background="@drawable/regbanner">
+
+            <TextView
+                    android:text="تسجيل مستخدم جديد"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/textView8" android:textSize="24sp" android:textColor="@color/garyBlue"
+                    android:fontFamily="@font/sky" android:layout_centerHorizontal="true" android:layout_centerVertical="true"/>
+        </RelativeLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginBottom="20dp"
+                android:background="@android:color/white" android:padding="10dp">
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_gravity="right" android:id="@+id/name_lay">
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/name_reg" android:layout_weight="1" android:gravity="right" android:fontFamily="@font/sky"
+                        android:hint="الإسم"/>
+                <View
+                        android:layout_width="15dp"
+                        android:layout_height="30dp" android:id="@+id/org" android:layout_weight="1" android:background="@color/org"
+                        android:layout_gravity="center_vertical"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:layout_gravity="right" android:id="@+id/phone_lay">
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/phone_reg" android:layout_weight="1" android:gravity="right" android:fontFamily="@font/sky"
+                        android:hint="رقم الهاتف"/>
+                <View
+                        android:layout_width="15dp"
+                        android:layout_height="30dp" android:id="@+id/view2" android:layout_weight="1" android:background="@color/pink"
+                        android:layout_gravity="center_vertical"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:layout_gravity="right" android:id="@+id/email_lay">
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/email_reg" android:layout_weight="1" android:gravity="right" android:fontFamily="@font/sky"
+                        android:hint="البريد الإلكتروني"/>
+                <View
+                        android:layout_width="15dp"
+                        android:layout_height="30dp" android:id="@+id/view3" android:layout_weight="1" android:background="@color/gr"
+                        android:layout_gravity="center_vertical"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:layout_gravity="right" android:id="@+id/pass_lay">
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/pass_reg" android:layout_weight="1" android:gravity="right" android:fontFamily="@font/sky"
+                        android:hint="كلمة المرور"/>
+                <View
+                        android:layout_width="15dp"
+                        android:layout_height="30dp" android:id="@+id/view4" android:layout_weight="1" android:background="@color/orgl"
+                        android:layout_gravity="center_vertical"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:layout_gravity="right" android:id="@+id/repass_lay">
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/repass_reg" android:layout_weight="1" android:gravity="right" android:fontFamily="@font/sky"
+                        android:hint="إعادة كلمة المرور"/>
+                <View
+                        android:layout_width="15dp"
+                        android:layout_height="30dp" android:id="@+id/view5" android:layout_weight="1" android:background="@color/yel"
+                        android:layout_gravity="center_vertical"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:layout_gravity="right" android:id="@+id/cond_lay">
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:layout_weight="1">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/textView12" android:layout_weight="1"
+                            android:fontFamily="@font/sky" android:textColor="@android:color/black"
+                            android:text="@string/condition" android:layout_marginRight="5dp"/>
+                    <CheckBox
+                            android:text="أوافق على"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/checkBox"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/sky"
+                            android:button="@null"
+                            android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    />
+                </LinearLayout>
+                <View
+                        android:layout_width="15dp"
+                        android:layout_height="30dp" android:id="@+id/view" android:layout_weight="1" android:background="@color/org"
+                        android:layout_gravity="center_vertical"/>
+            </LinearLayout>
+        </LinearLayout>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:background="@drawable/regbanner">
+
+            <TextView
+                    android:text="تسجيل"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/textView11" android:textSize="24sp" android:textColor="@color/garyBlue"
+                    android:fontFamily="@font/sky" android:layout_centerHorizontal="true" android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:background="@mipmap/bg"
+                android:layout_height="match_parent">
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iv_head"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/head"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"/>
+
+    <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:layout_below="@+id/iv_head"
+            android:textSize="30sp"
+            android:textColor="#fff"
+            android:text="ناقل عمان"
+            android:gravity="center" android:fontFamily="@font/sky" android:layout_marginLeft="20dp"/>
+
+    <ListView
+            android:id="@+id/test_listView"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_head"
+            android:layout_above="@+id/textView"
+            android:layout_marginLeft="20dp" android:layout_marginTop="50dp" android:layout_alignParentLeft="true"></ListView>
+
+    <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/imageButton"
+            android:src="@mipmap/setting"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentBottom="true"
+    />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="حول التطبيق"
+            android:id="@+id/textView"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:textColor="#fff"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/imageButton"
+            android:layout_toEndOf="@+id/imageButton" android:fontFamily="@font/sky"/>
+
+
+
+
+</RelativeLayout>
