@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
-    <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/starter_layout"
+                android:background="@color/mainColor">
 
-</LinearLayout>
+
+    <Button
+            android:text="تخطي"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:id="@+id/skip_btn" android:fontFamily="@font/sky" android:textColor="@android:color/white"
+            android:background="@drawable/btnwhiteborder" android:textSize="18sp"
+            android:layout_centerHorizontal="true" android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"/>
+    <TextView
+            android:text="Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/title_starter" android:textSize="24sp"
+            android:textColor="@android:color/white" android:layout_centerHorizontal="true"
+            android:fontFamily="@font/sky" android:layout_above="@+id/desc_starter"/>
+    <TextView
+            android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/desc_starter" android:gravity="center"
+            android:textColor="@android:color/white" android:fontFamily="@font/sky"
+            android:layout_centerHorizontal="true" android:layout_above="@+id/skip_btn"
+            android:layout_marginBottom="50dp"/>
+    <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp" tools:srcCompat="@tools:sample/avatars" android:id="@+id/img_starter"
+            android:layout_centerInParent="true"/>
+</RelativeLayout>
