@@ -78,9 +78,10 @@
                 <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
+                        android:inputType="phone"
                         android:ems="10"
-                        android:id="@+id/phone_reg" android:layout_weight="1" android:gravity="right" android:fontFamily="@font/sky"
+                        android:id="@+id/phone_reg" android:layout_weight="1" android:gravity="right"
+                        android:fontFamily="@font/sky"
                         android:hint="رقم الهاتف"/>
                 <View
                         android:layout_width="15dp"
@@ -94,10 +95,10 @@
                 <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
                         android:ems="10"
-                        android:id="@+id/email_reg" android:layout_weight="1" android:gravity="right" android:fontFamily="@font/sky"
-                        android:hint="البريد الإلكتروني"/>
+                        android:id="@+id/email_reg" android:layout_weight="1" android:gravity="right"
+                        android:fontFamily="@font/sky"
+                        android:hint="البريد الإلكتروني" android:inputType="textEmailAddress"/>
                 <View
                         android:layout_width="15dp"
                         android:layout_height="30dp" android:id="@+id/view3" android:layout_weight="1" android:background="@color/gr"
@@ -110,9 +111,10 @@
                 <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
+                        android:inputType="textPassword"
                         android:ems="10"
-                        android:id="@+id/pass_reg" android:layout_weight="1" android:gravity="right" android:fontFamily="@font/sky"
+                        android:id="@+id/pass_reg" android:layout_weight="1" android:gravity="right"
+                        android:fontFamily="@font/sky"
                         android:hint="كلمة المرور"/>
                 <View
                         android:layout_width="15dp"
@@ -126,9 +128,10 @@
                 <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
+                        android:inputType="textPassword"
                         android:ems="10"
-                        android:id="@+id/repass_reg" android:layout_weight="1" android:gravity="right" android:fontFamily="@font/sky"
+                        android:id="@+id/repass_reg" android:layout_weight="1" android:gravity="right"
+                        android:fontFamily="@font/sky"
                         android:hint="إعادة كلمة المرور"/>
                 <View
                         android:layout_width="15dp"
@@ -152,7 +155,7 @@
                             android:text="أوافق على"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/checkBox"
+                            android:id="@+id/codition_reg"
                             android:layout_weight="1"
                             android:fontFamily="@font/sky"
                             android:button="@null"
@@ -172,8 +175,9 @@
             <TextView
                     android:text="تسجيل"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/textView11" android:textSize="24sp" android:textColor="@color/garyBlue"
-                    android:fontFamily="@font/sky" android:layout_centerHorizontal="true" android:layout_centerVertical="true"/>
+                    android:layout_height="wrap_content" android:id="@+id/textView11" android:textSize="24sp"
+                    android:textColor="@color/garyBlue"
+                    android:fontFamily="@font/sky" android:onClick="register" android:layout_centerInParent="true"/>
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

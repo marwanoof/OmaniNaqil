@@ -40,4 +40,5 @@ dependencies {
     implementation 'com.github.DamanSingh4321:ProProgressViews:v1.1'
     implementation 'com.github.Shashank02051997:FancyGifDialog-Android:1.1'
     implementation 'com.github.Shashank02051997:FancyAlertDialog-Android:0.1'
+    implementation 'com.github.mjn1369:prettydialog:1.0.4'
 }

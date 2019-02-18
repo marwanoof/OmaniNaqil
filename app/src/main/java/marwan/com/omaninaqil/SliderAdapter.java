@@ -1,12 +1,15 @@
 package marwan.com.omaninaqil;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -26,7 +29,7 @@ public class SliderAdapter extends PagerAdapter {
             "تتبع الحمولة"
     };
     public String[] list_desc = {
-            "تبيق الناقل العماني هو أول عماني لإدارة الشحن اللوجستي في السلطنة",
+            "تطبيق الناقل العماني هو أول عماني لإدارة الشحن اللوجستي في السلطنة",
             "بإمكانك طلب نقل حمولة بكل سهولة وسرعة",
             "حرصا على الدقة والشفافية بإمكانك تتبع الحمولة التي قمت بإرسالها"
     };
@@ -58,11 +61,33 @@ public class SliderAdapter extends PagerAdapter {
         ImageView imageView = view.findViewById(R.id.img_starter);
         TextView title = view.findViewById(R.id.title_starter);
         TextView desc = view.findViewById(R.id.desc_starter);
+        Button newuser = view.findViewById(R.id.newuser_starter);
+        Button skip = view.findViewById(R.id.skip_btn);
+        newuser.setVisibility(View.INVISIBLE);
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,LoginPage.class);
+                context.startActivity(intent);
+            }
+        });
+        newuser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,Registeration.class);
+                context.startActivity(intent);
+            }
+        });
 
         relativeLayout.setBackgroundColor(list_colors[position]);
         imageView.setImageResource(list_image[position]);
         title.setText(list_title[position]);
         desc.setText(list_desc[position]);
+        if (position == 2){
+            newuser.setVisibility(View.VISIBLE);
+        }
+
+
         container.addView(view);
         return view;
     }
