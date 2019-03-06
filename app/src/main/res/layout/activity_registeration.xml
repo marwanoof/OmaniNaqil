@@ -180,4 +180,16 @@
                     android:fontFamily="@font/sky" android:onClick="register" android:layout_centerInParent="true"/>
         </RelativeLayout>
     </LinearLayout>
+    <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/overlay_view_reg"
+            android:background="@color/common_google_signin_btn_text_light_default"/>
+    <com.singh.daman.proprogressviews.CircleArcProgress
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:circle_size="40dp"
+            app:color_circle="@color/garyBlue"
+            app:arc_radius="50dp"
+            app:arc_color="@color/orgl"
+            android:id="@+id/circleProgress_reg"/>
 </RelativeLayout>
