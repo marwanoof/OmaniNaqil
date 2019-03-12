@@ -1,29 +1,24 @@
 package marwan.com.omaninaqil
 
-import android.content.Intent
-import android.os.AsyncTask
+
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Parcel
-import android.os.Parcelable
+
 import android.view.View
 import android.widget.CheckBox
 import android.widget.EditText
-import com.shashank.sony.fancygifdialoglib.FancyGifDialog
+
 import com.singh.daman.proprogressviews.CircleArcProgress
 import libs.mjn.prettydialog.PrettyDialog
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONException;
-import org.json.JSONObject;
-import android.support.v4.content.ContextCompat.startActivity
-import android.R.attr.description
-import android.R.attr.name
-import android.annotation.SuppressLint
-import android.util.Log
 
 
-public class Registeration : AppCompatActivity() {
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+
+
+class Registeration : AppCompatActivity() {
 
     lateinit var name1:EditText
     lateinit var phone:EditText
@@ -34,12 +29,11 @@ public class Registeration : AppCompatActivity() {
     private lateinit var progress: CircleArcProgress
     private lateinit var overlay:View
 
-    var jsonParser = JSONParser()
 
-    private val url_create_product = "https://unus-om.com/naqil/php/add_user.php"
 
-    // JSON Node names
-    private val TAG_SUCCESS = "success"
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var database: DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registeration)
@@ -55,10 +49,20 @@ public class Registeration : AppCompatActivity() {
 
         progress.visibility = View.GONE
         overlay.visibility = View.GONE
+
+       mAuth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance().reference
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val currentUser = mAuth.currentUser
+        //updateUI(currentUser)
     }
     fun register(view:View){
         if (checkRegister()){
-            CreateNewUser(this).execute()
+            signUp()
+            //CreateNewUser(this).execute()
         }
         /*
         var intent = Intent(baseContext, LoginPage::class.java)
@@ -104,7 +108,37 @@ public class Registeration : AppCompatActivity() {
         }
         return true
     }
+    fun signUp(){
+        progress.visibility = View.VISIBLE
+        overlay.visibility = View.VISIBLE
+        var emailFirebase:String = email.text.toString()
+        var passFirebase:String = pass.text.toString()
+        var nameFirebase:String = name1.text.toString()
+        var phoneFirebase:String =phone.text.toString()
+        mAuth.createUserWithEmailAndPassword(emailFirebase, passFirebase)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    var userui: FirebaseUser = mAuth.currentUser!!
+                    val user = User(nameFirebase,emailFirebase,phoneFirebase)
+                    database.child("users").child(userui.uid).setValue(user)
+                    progress.visibility = View.GONE
+                    overlay.visibility = View.GONE
 
+                    PrettyDialog(this)
+                        .setTitle("")
+                        .setMessage("تم التسجيل بنجاح")
+                        .setIcon(R.drawable.successful)
+                        .show()
+
+                } else {
+                    showDialog("حدث خطأ أثناء التسجيل الرجاء المحاولة مرة أخرى")
+                }
+
+                // ...
+            }
+    }
+/*
     @SuppressLint("StaticFieldLeak")
     class CreateNewUser(private var activity:Registeration?) : AsyncTask<String, String, String>() {
 
@@ -170,4 +204,5 @@ public class Registeration : AppCompatActivity() {
 
 
     }
+    */
 }
