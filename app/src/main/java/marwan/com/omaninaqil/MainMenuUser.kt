@@ -4,14 +4,26 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.widget.TextView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+
 
 
 
 class MainMenuUser : AppCompatActivity() {
 
+    lateinit var nameProfile:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu_user)
+        nameProfile = findViewById(R.id.name_txt)
+
+        getProfileDetails()
     }
     fun toTransportPage(view: View){
         var intent = Intent(baseContext, TransportPackeg::class.java)
@@ -20,25 +32,24 @@ class MainMenuUser : AppCompatActivity() {
     fun trackingType(view: View){
         var intent = Intent(baseContext, RequestMain::class.java)
         startActivity(intent)
-        /*
-        FancyAlertDialog.Builder(this)
-            .setTitle("اختر نوع التتبع")
-            .setBackgroundColor(Color.parseColor("#2c2f45"))  //Don't pass R.color.colorvalue
-            //.setMessage("Do you really want to Exit ?")
-            .setNegativeBtnText("تتبع حمولة سابقة")
-            .setPositiveBtnBackground(Color.parseColor("#f36823"))  //Don't pass R.color.colorvalue
-            .setPositiveBtnText("تتبع حمولة حديثة")
-            .setNegativeBtnBackground(Color.parseColor("#ff9000"))  //Don't pass R.color.colorvalue
-            .setAnimation(Animation.POP)
-            .isCancellable(true)
-            .setIcon(R.drawable.trackingicon, Icon.Visible)
-            .OnPositiveClicked {
 
-                 }
-            .OnNegativeClicked {
+    }
+    fun getProfileDetails(){
+        val mDatabase = FirebaseDatabase.getInstance().getReference("users")
+        val mAuth = FirebaseAuth.getInstance()
+        var userui: FirebaseUser = mAuth.currentUser!!
+        mDatabase.child(userui.uid).addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+                val user = dataSnapshot.getValue(User::class.java)
+
+                nameProfile.text = user!!.name
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
 
             }
-            .build()
-            */
+        })
     }
 }

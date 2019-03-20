@@ -12,9 +12,9 @@
             android:layout_width="250px"
             android:layout_height="100px"
             android:id="@+id/skip_btn" android:fontFamily="@font/sky" android:textColor="@android:color/white"
-            android:background="@drawable/btnwhiteborder" android:textSize="18sp"
+            android:textSize="18sp"
             android:layout_centerHorizontal="true" android:layout_alignParentBottom="true"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp" android:background="@drawable/btnwhiteborder"/>
     <TextView
             android:text="Title"
             android:layout_width="wrap_content"

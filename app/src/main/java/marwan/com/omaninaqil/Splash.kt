@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import com.google.firebase.FirebaseApp
 
 
 class Splash : AppCompatActivity() {
@@ -22,6 +23,7 @@ class Splash : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        FirebaseApp.initializeApp(this)
         circle1 = findViewById(R.id.cir1)
         circle2 = findViewById(R.id.cir2)
         circle3 = findViewById(R.id.cir3)
@@ -32,6 +34,7 @@ class Splash : AppCompatActivity() {
         Handler().postDelayed({
             var next = Intent(baseContext,StartPage::class.java)
             startActivity(next)
+            this.finish()
         }, 6000)
         animateLogo()
 

@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "33497600161-n0hoeui5cendl5bbr05l1cjn9ag67ic6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "marwan.com.omaninaqil",
+            "certificate_hash": "55f03c647fd54ab48749af1ad78eee926fe2fcf0"
+          }
+        },
+        {
           "client_id": "33497600161-i7rvpdqvlfcbj5i5tiimv2btg3f05onu.apps.googleusercontent.com",
           "client_type": 3
         }

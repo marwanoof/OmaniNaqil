@@ -11,6 +11,18 @@
     <array name="truck_type_defult">
         <item>نوع الشاحنة</item>
     </array>
+    <array name="packege_type">
+        <item>أنابيب</item>
+        <item>كمكل</item>
+        <item>كابلات</item>
+        <item>حديد</item>
+        <item>إسمنت الأبيض والإسمنت العادي</item>
+        <item>مواد بناء</item>
+        <item>مواد غذائية</item>
+        <item>خضار وفواكه</item>
+        <item>كونتنر</item>
+        <item>كرفانات</item>
+    </array>
     <string name="condition">
         <u>الشروط والأحكام</u>
     </string>

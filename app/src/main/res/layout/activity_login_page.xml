@@ -53,21 +53,33 @@
                     android:layout_height="wrap_content" android:id="@+id/forget_pass" android:fontFamily="@font/sky"
                     android:layout_centerVertical="true" android:layout_marginLeft="50dp"/>
         </RelativeLayout>
+        <Button
+                android:text="تسجيل الدخول"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/login_btn" android:background="@drawable/button_round_orang"
+                android:fontFamily="@font/sky"
+                android:textColor="@android:color/white" android:textSize="24sp"
+                android:layout_marginTop="50dp" android:onClick="loginCheck" android:gravity="center"
+                android:layout_gravity="center"/>
+        <TextView
+                android:text="إنشاء حساب جديد"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView5" android:fontFamily="@font/sky" android:textSize="18sp"
+                android:textColor="@color/garyBlue" android:layout_marginTop="20dp"
+                android:onClick="newAccountAction" android:layout_gravity="center"/>
     </LinearLayout>
-    <Button
-            android:text="تسجيل الدخول"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content" android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="false"
-            android:id="@+id/login_btn" android:background="@drawable/button_round_orang" android:fontFamily="@font/sky"
-            android:textColor="@android:color/white" android:textSize="24sp" android:layout_below="@+id/input_layout"
-            android:layout_marginTop="50dp" android:onClick="loginCheck"/>
-    <TextView
-            android:text="إنشاء حساب جديد"
+    <View
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="false"
-            android:id="@+id/textView5" android:fontFamily="@font/sky" android:textSize="18sp"
-            android:textColor="@color/garyBlue" android:layout_below="@+id/login_btn" android:layout_marginTop="20dp"
-            android:onClick="newAccountAction"/>
+            android:layout_height="wrap_content" android:id="@+id/overlay_view_login"
+            android:background="@color/common_google_signin_btn_text_light_default"/>
+    <com.singh.daman.proprogressviews.CircleArcProgress
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:circle_size="40dp"
+            app:color_circle="@color/garyBlue"
+            app:arc_radius="50dp"
+            app:arc_color="@color/orgl"
+            android:id="@+id/circleProgress_login"/>
 </RelativeLayout>

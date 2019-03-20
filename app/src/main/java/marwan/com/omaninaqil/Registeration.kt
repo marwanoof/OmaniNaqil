@@ -1,12 +1,15 @@
 package marwan.com.omaninaqil
 
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 
 import android.view.View
 import android.widget.CheckBox
 import android.widget.EditText
+import com.google.firebase.FirebaseApp
 
 import com.singh.daman.proprogressviews.CircleArcProgress
 import libs.mjn.prettydialog.PrettyDialog
@@ -31,7 +34,7 @@ class Registeration : AppCompatActivity() {
 
 
 
-    private lateinit var mAuth: FirebaseAuth
+    //private lateinit var mAuth: FirebaseAuth
     private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,13 +53,13 @@ class Registeration : AppCompatActivity() {
         progress.visibility = View.GONE
         overlay.visibility = View.GONE
 
-       mAuth = FirebaseAuth.getInstance()
-        database = FirebaseDatabase.getInstance().reference
+       //mAuth = FirebaseAuth.getInstance()
+       // database = FirebaseDatabase.getInstance().reference
     }
 
     override fun onStart() {
         super.onStart()
-        val currentUser = mAuth.currentUser
+        //val currentUser = mAuth.currentUser
         //updateUI(currentUser)
     }
     fun register(view:View){
@@ -115,13 +118,14 @@ class Registeration : AppCompatActivity() {
         var passFirebase:String = pass.text.toString()
         var nameFirebase:String = name1.text.toString()
         var phoneFirebase:String =phone.text.toString()
+        val mAuth = FirebaseAuth.getInstance()
         mAuth.createUserWithEmailAndPassword(emailFirebase, passFirebase)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     var userui: FirebaseUser = mAuth.currentUser!!
-                    val user = User(nameFirebase,emailFirebase,phoneFirebase)
-                    database.child("users").child(userui.uid).setValue(user)
+
+                    saveToDatabase(userui.uid,nameFirebase,emailFirebase,phoneFirebase)
                     progress.visibility = View.GONE
                     overlay.visibility = View.GONE
 
@@ -131,12 +135,32 @@ class Registeration : AppCompatActivity() {
                         .setIcon(R.drawable.successful)
                         .show()
 
+                    Handler().postDelayed({
+                        var next = Intent(baseContext,LoginPage::class.java)
+                        startActivity(next)
+                        this.finish()
+                    }, 2000)
                 } else {
                     showDialog("حدث خطأ أثناء التسجيل الرجاء المحاولة مرة أخرى")
+                    progress.visibility = View.GONE
+                    overlay.visibility = View.GONE
                 }
 
-                // ...
+
             }
+    }
+    fun saveToDatabase(userid:String, name:String, email:String, phone:String){
+
+        val mDatabase = FirebaseDatabase.getInstance().getReference("users")
+
+
+        val userId = mDatabase.push().key
+
+
+        val user = User(name,email,phone)
+
+// pushing user to 'users' node using the userId
+        mDatabase.child(userid).setValue(user)
     }
 /*
     @SuppressLint("StaticFieldLeak")

@@ -62,17 +62,21 @@
                 <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="date"
                         android:ems="10"
                         android:id="@+id/dateTxt"
                         android:layout_weight="1"
-                        android:textColor="@color/org" android:focusable="auto"/>
+                        android:textColor="@color/org"
+                        android:hint="اختر التاريخ"
+                        android:clickable="true" android:gravity="right" android:editable="false"/>
                 <TextView
                         android:text="تاريخ نقل الحمولة:"
                         android:layout_width="169dp"
-                        android:layout_height="wrap_content" android:id="@+id/textView13" android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView13"
+                        android:layout_weight="1"
                         android:fontFamily="@font/sky"
-                        android:textColor="@color/garyBlue" android:textSize="14sp"/>
+                        android:textColor="@color/garyBlue"
+                        android:textSize="14sp"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"
@@ -82,9 +86,11 @@
                 <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="time"
                         android:ems="10"
-                        android:id="@+id/timeTxt" android:layout_weight="1" android:textColor="@color/org" android:focusable="auto"/>
+                        android:id="@+id/timeTxt"
+                        android:layout_weight="1"
+                        android:textColor="@color/org"
+                        android:hint="اختر الوقت" android:gravity="right" android:editable="false"/>
                 <TextView
                         android:text="وقت نقل الحمولة:"
                         android:layout_width="184dp"
@@ -101,11 +107,14 @@
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:layout_gravity="right" android:paddingLeft="10dp" android:paddingRight="10dp"
-                    android:id="@+id/type_lay" android:layout_weight="0">
+                    android:layout_height="wrap_content" android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:id="@+id/type_lay" android:layout_weight="0" android:layout_gravity="right"
+                    android:gravity="center">
                 <Spinner
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/spinner" android:layout_weight="1"/>
+                        android:layout_height="wrap_content" android:id="@+id/spinner" android:layout_weight="1"
+                        android:entries="@array/packege_type"/>
                 <TextView
                         android:text="نوع الحمولة:"
                         android:layout_width="wrap_content"
@@ -218,7 +227,7 @@
     <View
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/overlay_view"
-            android:background="@color/common_google_signin_btn_text_light_default"/>
+            android:background="@color/common_google_signin_btn_text_light_default" android:visibility="gone"/>
     <com.singh.daman.proprogressviews.CircleArcProgress
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -226,5 +235,5 @@
             app:color_circle="@color/garyBlue"
             app:arc_radius="50dp"
             app:arc_color="@color/orgl"
-            android:id="@+id/circleProgress"/>
+            android:id="@+id/circleProgress" android:visibility="gone"/>
 </RelativeLayout>

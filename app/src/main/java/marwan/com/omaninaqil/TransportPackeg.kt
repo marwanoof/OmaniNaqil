@@ -1,7 +1,11 @@
 package marwan.com.omaninaqil
 
+import android.app.DatePickerDialog
 import android.app.Dialog
+import android.app.TimePickerDialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
@@ -11,6 +15,13 @@ import android.widget.EditText
 import android.widget.SeekBar
 import android.widget.TextView
 import com.singh.daman.proprogressviews.CircleArcProgress
+import java.util.*
+import android.widget.DatePicker
+import android.widget.TimePicker
+
+
+
+
 
 
 class TransportPackeg : AppCompatActivity() {
@@ -23,6 +34,9 @@ class TransportPackeg : AppCompatActivity() {
     lateinit var timeTxt:EditText
     lateinit var overlay:View
     lateinit var progress:CircleArcProgress
+
+    lateinit var mDateSetLisner:DatePickerDialog.OnDateSetListener
+    lateinit var mTimeSetListner:TimePickerDialog.OnTimeSetListener
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transport_packeg)
@@ -71,6 +85,42 @@ class TransportPackeg : AppCompatActivity() {
                 weightLbl.text = "طن"
             }
         }*/
+
+        //Date Picker
+        dateTxt.setOnClickListener(View.OnClickListener {
+            val cal = Calendar.getInstance()
+            val year = cal.get(Calendar.YEAR)
+            val month = cal.get(Calendar.MONTH)
+            val day = cal.get(Calendar.DAY_OF_MONTH)
+
+            val dialog = DatePickerDialog(
+                this@TransportPackeg,
+                android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                mDateSetLisner,
+                year, month, day
+            )
+            dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog.show()
+        })
+        mDateSetLisner = DatePickerDialog.OnDateSetListener { datePicker, year, month, day ->
+            var month = month
+            month += 1
+
+
+            val date = "$day/$month/$year"
+            dateTxt.setText(date)
+        }
+
+        //Time Picker
+        timeTxt.setOnClickListener(View.OnClickListener {
+            val timePickerDialog = TimePickerDialog(this@TransportPackeg,
+                TimePickerDialog.OnTimeSetListener { timePicker, hourOfDay, minutes ->
+                    val time = "$hourOfDay:$minutes"
+                    timeTxt.setText(time)
+                }, 0, 0, false
+            )
+            timePickerDialog.show()
+        })
 
     }
     fun fromBtn(view: View){
