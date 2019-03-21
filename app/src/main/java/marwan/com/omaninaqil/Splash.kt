@@ -32,7 +32,7 @@ class Splash : AppCompatActivity() {
         circle6 = findViewById(R.id.cir6)
         logocircle = findViewById(R.id.logo)
         Handler().postDelayed({
-            var next = Intent(baseContext,StartPage::class.java)
+            var next = Intent(baseContext,LoginPage::class.java)
             startActivity(next)
             this.finish()
         }, 6000)

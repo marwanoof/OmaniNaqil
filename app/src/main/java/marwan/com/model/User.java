@@ -1,4 +1,4 @@
-package marwan.com.omaninaqil;
+package marwan.com.model;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 

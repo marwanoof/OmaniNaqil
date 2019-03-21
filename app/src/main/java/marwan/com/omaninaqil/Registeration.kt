@@ -9,7 +9,6 @@ import android.os.Handler
 import android.view.View
 import android.widget.CheckBox
 import android.widget.EditText
-import com.google.firebase.FirebaseApp
 
 import com.singh.daman.proprogressviews.CircleArcProgress
 import libs.mjn.prettydialog.PrettyDialog
@@ -19,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import marwan.com.model.User
 
 
 class Registeration : AppCompatActivity() {
@@ -157,7 +157,7 @@ class Registeration : AppCompatActivity() {
         val userId = mDatabase.push().key
 
 
-        val user = User(name,email,phone)
+        val user = User(name, email, phone)
 
 // pushing user to 'users' node using the userId
         mDatabase.child(userid).setValue(user)
