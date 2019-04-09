@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+                android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <lib.kingja.switchbutton.SwitchMultiButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            app:strokeRadius="5dp"
+            app:strokeWidth="1dp"
+            app:selectedTab="2"
+            app:selectedColor="@color/garyBlue"
+            app:typeface="sky.ttf"
+            app:switchTabs="@array/switch_tabs"
+            app:textSize="14sp" android:layout_marginLeft="10dp" android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp" android:id="@+id/switchTabs"/>
+
+    <Spinner
+        android:id="@+id/gov_spin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/switchTabs"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:entries="@array/gov" />
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp" android:id="@+id/view11" android:layout_below="@+id/gov_spin"
+            android:background="@drawable/button_round_orang" android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+    <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/state_spin" android:layout_below="@+id/view11"
+            android:layout_marginTop="20dp" android:layout_marginRight="10dp" android:layout_marginLeft="10dp"
+            android:entries="@array/defult_wilaya"/>
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp" android:id="@+id/view12" android:layout_below="@+id/state_spin"
+            android:background="@drawable/button_round_orang" android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_below="@+id/view12" android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true" android:layout_marginBottom="30dp">
+        <Button
+                android:text="إلغاء"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/cancel_btn_dialog" android:layout_weight="1"
+                android:background="@drawable/button_bg" android:textColor="@android:color/white"
+                android:layout_marginRight="10dp"/>
+        <Button
+                android:text="حفظ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/save_btn_dialog" android:layout_weight="1"
+                android:background="@drawable/button_bg" android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+</RelativeLayout>

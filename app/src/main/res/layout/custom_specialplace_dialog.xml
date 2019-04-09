@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-              android:layout_height="match_parent" android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:orientation="vertical">
 
     <TextView
-            android:text="مناطق الإمتياز"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/title_custom_txt2" android:gravity="center" android:textSize="18sp"
-            android:textColor="@color/org" android:fontFamily="@font/sky"/>
+        android:text="مناطق الإمتياز"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/title_custom_txt2" android:gravity="center" android:textSize="18sp"
+        android:textColor="@color/org" android:fontFamily="@font/sky"/>
     <View
-            android:layout_width="match_parent"
-            android:layout_height="5dp" android:id="@+id/view8" android:background="@color/garyBlue" android:layout_marginRight="50dp"
-            android:layout_marginLeft="50dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="5dp" android:id="@+id/view8" android:background="@color/garyBlue" android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"/>
     <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_gravity="center" android:gravity="right">
+        <RadioButton
+            android:text="فهود"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_gravity="center" android:gravity="right">
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableRight="@android:drawable/btn_radio"
+            android:fontFamily="@font/sky"
+            android:textSize="18sp"
+            android:textColor="@color/garyBlue"/>
         <RadioButton
-                android:text="فهود"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/radioButton"
-                android:layout_weight="1"
-                android:button="@null"
-                android:drawableRight="@android:drawable/btn_radio"
-                android:fontFamily="@font/sky"
-                android:textSize="18sp"
-                android:textColor="@color/garyBlue"/>
+            android:text="قرن علم"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/radioButton2" android:layout_weight="1"
+            android:button="@null" android:drawableRight="@android:drawable/btn_radio" android:fontFamily="@font/sky" android:textSize="18sp"
+            android:textColor="@color/garyBlue"/>
         <RadioButton
-                android:text="قرن علم"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/radioButton2" android:layout_weight="1"
-                android:button="@null" android:drawableRight="@android:drawable/btn_radio" android:fontFamily="@font/sky" android:textSize="18sp"
-                android:textColor="@color/garyBlue"/>
-        <RadioButton
-                android:text="هرويل"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/radioButton3" android:layout_weight="1"
-                android:button="@null" android:drawableRight="@android:drawable/btn_radio" android:fontFamily="@font/sky" android:textSize="18sp"
-                android:textColor="@color/garyBlue"/>
+            android:text="هرويل"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/radioButton3" android:layout_weight="1"
+            android:button="@null" android:drawableRight="@android:drawable/btn_radio" android:fontFamily="@font/sky" android:textSize="18sp"
+            android:textColor="@color/garyBlue"/>
     </RadioGroup>
     <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" android:layout_marginBottom="50dp"
-            android:id="@+id/bottom_lay" android:layout_marginTop="10dp">
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" android:layout_marginBottom="50dp"
+        android:id="@+id/bottom_lay" android:layout_marginTop="10dp">
         <Button
-                android:text="إلغاء"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/cancel_special" android:layout_weight="1"
-                android:background="@drawable/button_rec"
-                android:textSize="24sp" android:fontFamily="@font/sky" android:layout_marginRight="10dp" android:gravity="center"
-                android:textColor="@android:color/white"/>
+            android:text="إلغاء"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/cancel_special" android:layout_weight="1"
+            android:background="@drawable/button_rec"
+            android:textSize="24sp" android:fontFamily="@font/sky" android:layout_marginRight="10dp" android:gravity="center"
+            android:textColor="@android:color/white"/>
         <Button
-                android:text="اختيار"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/save_special" android:layout_weight="1"
-                android:background="@drawable/button_rec"
-                android:textSize="24sp" android:fontFamily="@font/sky" android:gravity="center" android:shadowColor="@android:color/black"
-                android:textColor="@android:color/white"/>
+            android:text="اختيار"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/save_special" android:layout_weight="1"
+            android:background="@drawable/button_rec"
+            android:textSize="24sp" android:fontFamily="@font/sky" android:gravity="center" android:shadowColor="@android:color/black"
+            android:textColor="@android:color/white"/>
     </LinearLayout>
 </LinearLayout>

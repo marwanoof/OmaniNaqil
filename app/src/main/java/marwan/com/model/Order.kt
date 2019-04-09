@@ -7,5 +7,11 @@ class Order {
     var time:String = ""
     var type:String = ""
     var wight:String = ""
-    var from
+    var fromLat:String = ""
+    var fromLon:String = ""
+    var toLat:String = ""
+    var toLon:String = ""
+    var payType:String = ""
+    var status:String = ""
+
 }

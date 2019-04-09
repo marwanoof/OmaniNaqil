@@ -44,16 +44,19 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //implementation 'com.github.mohammadatif:Animatoo:master'
+
     implementation 'com.google.android.gms:play-services-maps:16.1.0'
     implementation 'com.google.android.gms:play-services-location:16.0.0'
+    //implementation 'com.google.android.gms:play-services:12.0.1'
     implementation 'com.github.MoeidHeidari:LocationTracker:1.01'
     implementation 'com.github.DamanSingh4321:ProProgressViews:v1.1'
     implementation 'com.github.Shashank02051997:FancyGifDialog-Android:1.1'
     implementation 'com.github.Shashank02051997:FancyAlertDialog-Android:0.1'
     implementation 'com.github.mjn1369:prettydialog:1.0.4'
-    implementation 'com.google.firebase:firebase-core:16.0.7'
+    implementation 'com.google.firebase:firebase-core:16.0.8'
     implementation 'com.google.firebase:firebase-database:16.1.0'
-    implementation 'com.google.firebase:firebase-auth:16.1.0'
+    implementation 'com.google.firebase:firebase-auth:16.2.0'
+    implementation 'lib.kingja.switchbutton:switchbutton:1.1.8'
 
 
 }

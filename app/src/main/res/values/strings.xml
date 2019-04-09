@@ -27,4 +27,161 @@
         <u>الشروط والأحكام</u>
     </string>
     <string name="title_activity_maps">اختر المكان على الخريطة</string>
+    <array name="switch_tabs">
+        <item>مناطق الإمتياز</item>
+        <item>خارج السلطنة</item>
+        <item>داخل السلطنة</item>
+    </array>
+    <string name="skyfont">
+        <font face="@font/sky.ttf"></font>
+    </string>
+    <array name="gov">
+        <item>اختر المحافظة</item>
+        <item>مسقط</item>
+        <item>الداخلية</item>
+        <item>الظاهرة</item>
+        <item>البريمي</item>
+        <item>مسندم</item>
+        <item>الباطنة شمال</item>
+        <item>الباطنة جنوب</item>
+        <item>الشرقية شمال</item>
+        <item>الشرقية جنوب</item>
+        <item>الوسطى</item>
+        <item>ظفار</item>
+    </array>
+
+    <string-array name="defult_wilaya">
+        <item>اختر الولاية</item>
+    </string-array>
+
+    <string-array name="dakhiliyah">
+        <item>نزوى</item>
+        <item>سمائل</item>
+        <item>بهلاء</item>
+        <item>أدم</item>
+        <item>الحمراء</item>
+        <item>منح</item>
+        <item>إزكي</item>
+        <item>بدبد</item>
+    </string-array>
+
+    <string-array name="dhahirah">
+        <item>عبري</item>
+        <item>ينقل</item>
+        <item>ضنك</item>
+    </string-array>
+
+    <string-array name="batinah_north">
+        <item>صحار</item>
+        <item>شناص</item>
+        <item>لوى</item>
+        <item>صحم</item>
+        <item>الخابورة</item>
+        <item>السويق</item>
+    </string-array>
+
+    <string-array name="batinahSouth">
+        <item>الرستاق</item>
+        <item>العوابي</item>
+        <item>نخل</item>
+        <item>وادي المعاول</item>
+        <item>بركاء</item>
+        <item>المصنعة</item>
+    </string-array>
+
+    <string-array name="buraimi">
+        <item>البريمي</item>
+        <item>محضة</item>
+        <item>السنينة</item>
+    </string-array>
+    <string-array name="sharqiyahNorth">
+        <item>إبراء</item>
+        <item>المضيبي</item>
+        <item>بدية</item>
+        <item>القابل</item>
+        <item>وادي بني خالد</item>
+        <item>دماء والطائين</item>
+    </string-array>
+
+    <string-array name="sharqiyahSouth">
+        <item>صور</item>
+        <item>الكامل والوافي</item>
+        <item>جعلان بني بو حسن</item>
+        <item>جعلان بني بو علي</item>
+        <item>مصيرة</item>
+    </string-array>
+
+    <string-array name="wusta">
+        <item>هيماء</item>
+        <item>الدقم</item>
+        <item>محوت</item>
+        <item>الجازر</item>
+    </string-array>
+
+    <string-array name="dhofar">
+        <item>المزيونة</item>
+        <item>ضلكوت</item>
+        <item>مرباط</item>
+        <item>مقشن</item>
+        <item>رخيوت</item>
+        <item>سدح</item>
+        <item>صلالة</item>
+        <item>شليم وجزر الحلانيات</item>
+        <item>طاقة</item>
+        <item>ثمريت</item>
+    </string-array>
+
+    <string-array name="musqat">
+        <item>العامرات</item>
+        <item>بوشر</item>
+        <item>مسقط</item>
+        <item>مطرح</item>
+        <item>قريات</item>
+        <item>السيب</item>
+    </string-array>
+
+    <string-array name="musandam">
+        <item>خصب</item>
+        <item>بخا</item>
+        <item>دبا البيعة</item>
+        <item>مدحاء</item>
+    </string-array>
+    <array name="outsideOman">
+        <item>اختر الدولة</item>
+        <item>الإمارات</item>
+    </array>
+    <array name="uae">
+        <item>اختر المنطقة</item>
+        <item>أبو ظبي</item>
+        <item>العين</item>
+        <item>دبي</item>
+        <item>الشارقة</item>
+        <item>الفجيرة</item>
+        <item>عجمان</item>
+        <item>رأس الخيمة</item>
+        <item>أم القيوين</item>
+    </array>
+    <array name="default_outsideRegion">
+        <item>اختر المنطقة</item>
+    </array>
+    <array name="specialPlace">
+        <item>اختر المنطقة</item>
+        <item>فهود</item>
+        <item>قرن العلم</item>
+        <item>جبال</item>
+        <item>سيح رول</item>
+        <item>بهجة</item>
+        <item>خزان</item>
+        <item>مخيزنة</item>
+        <item>الكوثر</item>
+        <item>ريما</item>
+        <item>أمل</item>
+        <item>نمر</item>
+        <item>مرمول</item>
+        <item>الصفاء</item>
+        <item>دليل</item>
+        <item>الخوير</item>
+
+    </array>
+    <string name="title_activity_location_map">Map</string>
 </resources>

@@ -53,21 +53,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:gravity="right" android:layout_marginTop="20dp">
                 <TextView
-                        android:text="3 ساعات"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/time_final" android:layout_weight="1"
-                        android:layout_marginRight="5dp" android:fontFamily="@font/sky" android:textColor="@color/org" android:textSize="18sp"/>
-                <TextView
-                        android:text="الوقت التقديري:"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/textView17" android:layout_weight="1" android:fontFamily="@font/sky"
-                        android:textColor="@color/garyBlue" android:textSize="18sp"/>
-            </LinearLayout>
-            <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:gravity="right" android:layout_marginTop="20dp">
-                <TextView
                         android:text="100 ريال عماني"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:id="@+id/price_final" android:layout_weight="1"
@@ -82,8 +67,16 @@
                     android:text="تأكيد الطلب"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/confirm_final" android:fontFamily="@font/sky"
-                    android:background="@drawable/button_rec" android:textColor="@android:color/white" android:textSize="18sp"
-                    android:layout_marginTop="20dp" android:onClick="confirmFinal"/>
+                    android:background="@drawable/button_rec" android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:layout_marginTop="50dp" android:onClick="confirmFinal"/>
+            <Button
+                    android:text="إلغاء الطلب"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/confirm_final2" android:fontFamily="@font/sky"
+                    android:background="@drawable/button_rec" android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:layout_marginTop="10dp" android:onClick="cancle"/>
         </LinearLayout>
     </RelativeLayout>
     <View

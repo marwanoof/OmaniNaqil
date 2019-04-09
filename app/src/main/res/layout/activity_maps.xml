@@ -18,14 +18,17 @@
         <Button
                 android:text="إلغاء"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/cancel_map" android:layout_weight="1" android:background="@drawable/button_rec"
-                android:textSize="24sp" android:fontFamily="@font/sky" android:layout_marginRight="10dp" android:gravity="center"
+                android:layout_height="wrap_content" android:id="@+id/cancel_map" android:layout_weight="1"
+                android:background="@drawable/button_rec"
+                android:textSize="24sp" android:fontFamily="@font/sky" android:layout_marginRight="10dp"
+                android:gravity="center"
                 android:textColor="@android:color/white" android:onClick="cancelBtn"/>
         <Button
                 android:text="حفظ"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/save_map" android:layout_weight="1" android:background="@drawable/button_rec"
-                android:textSize="24sp" android:fontFamily="@font/sky" android:gravity="center" android:shadowColor="@android:color/black"
+                android:layout_height="wrap_content" android:id="@+id/save_map" android:layout_weight="1"
+                android:background="@drawable/button_rec"
+                android:textSize="24sp" android:gravity="center"
                 android:textColor="@android:color/white" android:onClick="saveBtn"/>
     </LinearLayout>
 </LinearLayout>
