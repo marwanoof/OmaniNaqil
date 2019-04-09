@@ -348,8 +348,8 @@ class TransportPackeg : AppCompatActivity() {
         val order = Order()
         var success:Boolean = false
 
-        var packageId = ""
-        packageId = (Math.random() * 9000000 + 1000000).toString()
+
+        var packageId:Int = (Math.random() * 9000000 + 1000000).toInt()
         var date:String = dateTxt.text.toString()
         var time:String = timeTxt.text.toString()
         var type:String = packageType.selectedItem.toString()
@@ -359,12 +359,13 @@ class TransportPackeg : AppCompatActivity() {
         var toLat:String = dbHandler!!.getToLat(1)
         var toLon:String = dbHandler!!.getToLon(1)
         var pay = "cash"
+        var price = calculatePrice()
         var status = "processing"
 
         if (date.isEmpty() || time.isEmpty() || type.isEmpty() || wight.isEmpty()){
             showDialog("الرجاء ادخال جميع البيانات")
         }else{
-            order.packegId = packageId
+            order.packegId = packageId.toString()
             order.date = date
             order.time = time
             order.type = type
@@ -374,6 +375,7 @@ class TransportPackeg : AppCompatActivity() {
             order.toLat = toLat
             order.toLon = toLon
             order.payType = pay
+            order.price = price
             order.status = status
 
 
@@ -395,6 +397,41 @@ class TransportPackeg : AppCompatActivity() {
 
 
     }
+    fun calculatePrice():String{
+        var fromLat:Double = dbHandler!!.getFromLat(1).toDouble()
+        var fromLon:Double = dbHandler!!.getFromLon(1).toDouble()
+        var toLat:Double = dbHandler!!.getToLat(1).toDouble()
+        var toLon:Double = dbHandler!!.getToLon(1).toDouble()
+
+        var distance = calDistance(fromLat,fromLon,toLat,toLon)
+        var price = 0.0
+        if (distance < 200){
+            price = 0.600 * distance
+        }else if (distance < 500 && distance >= 200){
+            price = 0.550 * distance
+        }else if (distance < 800 && distance >= 500){
+            price = 0.500 * distance
+        }else{
+            price = 0.450 * distance
+        }
+        return round(price,3).toString()
+
+
+    }
+    fun round(value: Double, places: Int): Double {
+        var value = value
+        if (places < 0) throw IllegalArgumentException()
+
+        val factor = Math.pow(10.0, places.toDouble()).toLong()
+        value = value * factor
+        val tmp = Math.round(value)
+        return tmp.toDouble() / factor
+    }
+    fun calDistance(lat1:Double,lon1:Double,lat2:Double,lon2:Double):Double{
+        var distanceCalculator = DistanceCalculator()
+        var disKM = distanceCalculator.greatCircleInKilometers(lat1,lon1,lat2,lon2)
+        return disKM
+    }
     fun showDialog(msg:String){
         PrettyDialog(this)
             .setTitle("خطأ")
@@ -402,29 +439,7 @@ class TransportPackeg : AppCompatActivity() {
             .setIcon(R.drawable.error)
             .show()
     }
-    fun getLatLong(address:String) :Boolean{
 
-        var coder = Geocoder(baseContext)
-        var add:MutableList<Address>
-        try {
-            add = coder.getFromLocationName(address,5)
-            if (add == null){
-                Toast.makeText(this,"Address not correct", Toast.LENGTH_LONG).show()
-            }
-            var location:Address = add.get(0)
-            Toast.makeText(this,"Latitude : "+ location.getLatitude() + " Longitude : "+ location.getLongitude(), Toast.LENGTH_LONG).show()
-
-            return true
-        } catch (e:Exception){
-            Toast.makeText(this,"Address not correct Exc", Toast.LENGTH_LONG).show()
-            return false
-        }
-    }
-    fun calDistance(lat1:Double,lon1:Double,lat2:Double,lon2:Double){
-        var distanceCalculator = DistanceCalculator()
-        var disKM:String = distanceCalculator.greatCircleInKilometers(lat1,lon1,lat2,lon2).toString()
-        Toast.makeText(this,"The distance is: $disKM", Toast.LENGTH_LONG).show()
-    }
     fun showMap(){
         var intent = Intent(baseContext,LocationMap::class.java)
         startActivity(intent)

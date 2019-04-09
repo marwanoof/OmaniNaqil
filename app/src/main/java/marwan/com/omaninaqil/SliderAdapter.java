@@ -69,6 +69,7 @@ public class SliderAdapter extends PagerAdapter {
             public void onClick(View view) {
                 Intent intent = new Intent(context,LoginPage.class);
                 context.startActivity(intent);
+
             }
         });
         newuser.setOnClickListener(new View.OnClickListener() {

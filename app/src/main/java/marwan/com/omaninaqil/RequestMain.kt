@@ -9,16 +9,18 @@ import android.widget.Toast
 import android.widget.TextView
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemClickListener
-
+import marwan.com.Database.DatabaseHandler
 
 
 class RequestMain : AppCompatActivity() {
 
     lateinit var shipId:Array<String>
     lateinit var shipStatus:Array<Int>
+    var dbHandler: DatabaseHandler? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_request_main)
+        dbHandler = DatabaseHandler(this)
         var requestListView:ListView = findViewById(R.id.list_request_main)
 
         insertTestData()
@@ -26,7 +28,9 @@ class RequestMain : AppCompatActivity() {
         requestListView.adapter = requestListAdapter
         requestListView.onItemClickListener =
                 OnItemClickListener { parent, view, position, id ->
-                   // val item = (view as TextView).text.toString()
+                   val item:String = view.findViewById<TextView>(R.id.shipment_id_txt).text.toString()
+                   dbHandler!!.updatePackegeId(item)
+
                     var intent = Intent(baseContext,RequestDetails::class.java)
                     startActivity(intent)
 
@@ -35,7 +39,12 @@ class RequestMain : AppCompatActivity() {
     }
 
     fun insertTestData(){
-        shipId = arrayOf("06325412","052148532","02875479","04857269")
-        shipStatus = arrayOf(R.drawable.underprocess,R.drawable.processed,R.drawable.deliverd,R.drawable.cancelrequest)
+
+        var shipIdArrayList = dbHandler!!.getOrdersPackegID()
+
+        shipId = shipIdArrayList.toTypedArray()
+        var shipStatusArrayList = dbHandler!!.getOrdersStatus()
+
+        shipStatus = shipStatusArrayList.toTypedArray()
     }
 }

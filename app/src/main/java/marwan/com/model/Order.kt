@@ -12,6 +12,7 @@ class Order {
     var toLat:String = ""
     var toLon:String = ""
     var payType:String = ""
+    var price:String = ""
     var status:String = ""
 
 }

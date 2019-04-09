@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Naqil</string>
+    <string name="app_name">الناقل العماني</string>
     <string name="title_activity_main_menu">MainMenu</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>

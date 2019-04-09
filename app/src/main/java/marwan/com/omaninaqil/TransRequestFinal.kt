@@ -7,10 +7,16 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.FirebaseDatabase
 import com.shashank.sony.fancygifdialoglib.FancyGifDialog
 import com.singh.daman.proprogressviews.CircleArcProgress
+import libs.mjn.prettydialog.PrettyDialog
 import marwan.com.Database.DatabaseHandler
 import marwan.com.Distance.DistanceCalculator
+import marwan.com.model.Order
+import marwan.com.model.User
 
 
 class TransRequestFinal : AppCompatActivity() {
@@ -69,7 +75,7 @@ class TransRequestFinal : AppCompatActivity() {
             //.setGifResource(R.drawable.movingtruck)   //Pass your Gif here
             .isCancellable(true)
             .OnPositiveClicked {
-                showProgress()
+                saveToFirebase()
             }
             .OnNegativeClicked {
 
@@ -118,16 +124,17 @@ class TransRequestFinal : AppCompatActivity() {
             }
             .build()
     }
-    fun showProgress(){
-        overlayFinal.visibility = View.VISIBLE
-        progressFinal.visibility = View.VISIBLE
-        Handler().postDelayed({
-            overlayFinal.visibility = View.GONE
-            progressFinal.visibility = View.GONE
-            submited()
-        }, 3000)
+    fun showDialog(msg:String){
+        PrettyDialog(this)
+            .setTitle("خطأ")
+            .setMessage(msg)
+            .setIcon(R.drawable.error)
+            .show()
     }
+    fun getlatestId():Int{
+        return dbHandler!!.getLastId()
 
+    }
     fun round(value: Double, places: Int): Double {
         var value = value
         if (places < 0) throw IllegalArgumentException()
@@ -136,6 +143,39 @@ class TransRequestFinal : AppCompatActivity() {
         value = value * factor
         val tmp = Math.round(value)
         return tmp.toDouble() / factor
+    }
+    fun saveToFirebase(){
+        overlayFinal.visibility = View.VISIBLE
+        progressFinal.visibility = View.VISIBLE
+        val mAuth = FirebaseAuth.getInstance()
+        var userui: FirebaseUser = mAuth.currentUser!!
+        val mDatabase = FirebaseDatabase.getInstance().getReference("orders")
+
+
+
+
+
+        val order:Order = dbHandler!!.getOrder(getlatestId())
+
+// pushing user to 'users' node using the userId
+        mDatabase.child(userui.uid).setValue(order).addOnCompleteListener(this) { task ->
+            if (task.isSuccessful) {
+                // Sign in success, update UI with the signed-in user's information
+                var userui: FirebaseUser = mAuth.currentUser!!
+
+
+                overlayFinal.visibility = View.GONE
+                progressFinal.visibility = View.GONE
+
+                submited()
+            } else {
+                showDialog("حدث خطأ أثناء التسجيل الرجاء المحاولة مرة أخرى")
+                overlayFinal.visibility = View.GONE
+                progressFinal.visibility = View.GONE
+            }
+
+
+        }
     }
 
 }

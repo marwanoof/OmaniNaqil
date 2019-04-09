@@ -9,6 +9,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import com.google.firebase.FirebaseApp
+import marwan.com.Database.DatabaseHandler
 
 
 class Splash : AppCompatActivity() {
@@ -20,9 +21,13 @@ class Splash : AppCompatActivity() {
     lateinit var circle5:ImageView
     lateinit var circle6:ImageView
     lateinit var logocircle:ImageView
+    var dbHandler: DatabaseHandler? = null
+    lateinit var startPageStatus:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        dbHandler = DatabaseHandler(this)
+        startPageStatus = dbHandler!!.getFirstTime()
         FirebaseApp.initializeApp(this)
         circle1 = findViewById(R.id.cir1)
         circle2 = findViewById(R.id.cir2)
@@ -32,9 +37,17 @@ class Splash : AppCompatActivity() {
         circle6 = findViewById(R.id.cir6)
         logocircle = findViewById(R.id.logo)
         Handler().postDelayed({
-            var next = Intent(baseContext,TransportPackeg::class.java)
-            startActivity(next)
-            this.finish()
+            if (startPageStatus == "yes"){
+                dbHandler!!.updateFirstTime()
+                var next = Intent(baseContext,StartPage::class.java)
+                startActivity(next)
+                this.finish()
+            }else{
+                var next = Intent(baseContext,LoginPage::class.java)
+                startActivity(next)
+                this.finish()
+            }
+
         }, 6000)
         animateLogo()
 

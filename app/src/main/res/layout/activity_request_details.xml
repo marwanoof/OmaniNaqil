@@ -68,7 +68,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right" android:paddingRight="20dp" android:paddingLeft="20dp"
-                android:layout_marginBottom="30dp" android:layout_alignParentBottom="true">
+                android:layout_marginBottom="30dp" android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp">
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
@@ -76,7 +77,7 @@
                 <TextView
                         android:text="250 كم"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/distance_final" android:layout_weight="1"
+                        android:layout_height="wrap_content" android:id="@+id/type_final" android:layout_weight="1"
                         android:layout_marginRight="5dp" android:fontFamily="@font/sky" android:textColor="@color/org"
                         android:textSize="18sp"/>
                 <TextView
@@ -115,7 +116,8 @@
                     <TextView
                             android:text="20 طن"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:id="@+id/time_final" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:id="@+id/weight_final"
+                            android:layout_weight="1"
                             android:layout_marginRight="5dp" android:fontFamily="@font/sky"
                             android:textColor="@color/org"
                             android:textSize="18sp"/>
@@ -135,7 +137,7 @@
                 <TextView
                         android:text="قيد التوصيل"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/status_details" android:layout_weight="1"
+                        android:layout_height="wrap_content" android:id="@+id/status_final" android:layout_weight="1"
                         android:layout_marginRight="5dp" android:fontFamily="@font/sky"
                         android:textColor="@color/org"
                         android:textSize="18sp"/>
@@ -151,13 +153,13 @@
     <Button
             android:text="تأكيد وصول الحمولة"
             android:layout_width="200dp"
-            android:layout_height="wrap_content" android:id="@+id/confirm_arr_btn"
+            android:layout_height="wrap_content" android:id="@+id/confirm_detaile_btn"
             android:background="@drawable/button_round_red" android:paddingRight="10dp" android:paddingLeft="10dp"
             android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp" android:onClick="confirm" android:textColor="@android:color/white"/>
     <com.google.android.gms.maps.MapView
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/details_map" android:layout_below="@+id/detail_lay"
-            android:layout_alignBottom="@+id/confirm_arr_btn" android:layout_marginRight="30dp"
+            android:layout_alignBottom="@+id/confirm_detaile_btn" android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp" android:layout_marginTop="10dp" android:layout_marginBottom="60dp"/>
 </RelativeLayout>
