@@ -5,7 +5,14 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import marwan.com.model.Order
+
+import com.google.android.gms.common.util.IOUtils.toByteArray
+import android.graphics.Bitmap
+
+import android.graphics.BitmapFactory
 import marwan.com.omaninaqil.R
+
+import java.io.ByteArrayOutputStream
 
 
 class DatabaseHandler(context: Context) :
@@ -18,12 +25,14 @@ class DatabaseHandler(context: Context) :
         val lastOrderId = "create table LastId (id integer primary key , order_id integer )"
         val PackegeId = "create table PackegeId (id integer primary key , pk_id text )"
         val FirstTime = "create table FirstTime (id integer primary key , ft text )"
+        val profileImage = "create table profileImage (id integer primary key , img blob )"
         db?.execSQL(create_table)
         db?.execSQL(tablePlaceDir)
         db?.execSQL(tableLocationCord)
         db?.execSQL(lastOrderId)
         db?.execSQL(PackegeId)
         db?.execSQL(FirstTime)
+        db?.execSQL(profileImage)
         addRowOnes(db)
         addRowOnesLocation(db)
         addLastIdOnce(db)
@@ -40,6 +49,7 @@ class DatabaseHandler(context: Context) :
         db?.execSQL("DROP TABLE IF EXISTS LastId")
         db?.execSQL("DROP TABLE IF EXISTS PackegeId")
         db?.execSQL("DROP TABLE IF EXISTS FirstTime")
+        db?.execSQL("DROP TABLE IF EXISTS profileImage")
         onCreate(db)
     }
 
@@ -49,6 +59,16 @@ class DatabaseHandler(context: Context) :
         valuesPlace.put("dir", "from")
         db?.insert("PlaceDir", null, valuesPlace)
        // db?.close()
+    }
+    fun addProfileImg(img:ByteArray){
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put("img", img)
+
+        db.insert("profileImage", null, values)
+        db.close()
+
+
     }
     fun addFirstTime(db:SQLiteDatabase?){
 
@@ -184,6 +204,15 @@ class DatabaseHandler(context: Context) :
 // return contact
 
         return cursor.getString(1)
+    }
+    fun getProfileImg(): ByteArray {
+        val db = this.readableDatabase
+        val cursor = db.query(
+            "profileImage", arrayOf("id", "img"), "id" + "=?",
+            arrayOf("1"), null, null, null, null
+        )
+        cursor?.moveToFirst()
+        return cursor.getBlob(1)
     }
     fun getFromLat(id: Int): String {
         val db = this.readableDatabase

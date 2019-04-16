@@ -19,6 +19,12 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import marwan.com.model.User
+import com.google.android.gms.common.util.IOUtils.toByteArray
+import android.graphics.Bitmap
+
+import android.graphics.BitmapFactory
+import marwan.com.Database.DatabaseHandler
+import java.io.ByteArrayOutputStream
 
 
 class Registeration : AppCompatActivity() {
@@ -32,7 +38,7 @@ class Registeration : AppCompatActivity() {
     private lateinit var progress: CircleArcProgress
     private lateinit var overlay:View
 
-
+    var dbHandler: DatabaseHandler? = null
 
     //private lateinit var mAuth: FirebaseAuth
     private lateinit var database: DatabaseReference
@@ -40,6 +46,7 @@ class Registeration : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registeration)
+        dbHandler = DatabaseHandler(this)
         name1 = findViewById(R.id.name_reg)
         phone = findViewById(R.id.phone_reg)
         email = findViewById(R.id.email_reg)
@@ -112,6 +119,7 @@ class Registeration : AppCompatActivity() {
         return true
     }
     fun signUp(){
+        saveDefultProfileImg()
         progress.visibility = View.VISIBLE
         overlay.visibility = View.VISIBLE
         var emailFirebase:String = email.text.toString()
@@ -148,6 +156,17 @@ class Registeration : AppCompatActivity() {
 
 
             }
+    }
+    fun saveDefultProfileImg(){
+        val image = BitmapFactory.decodeResource(
+            resources,
+            R.drawable.userprofile
+        )
+
+        val stream = ByteArrayOutputStream()
+        image.compress(Bitmap.CompressFormat.JPEG, 100, stream)
+        val imageInByte = stream.toByteArray()
+        dbHandler?.addProfileImg(imageInByte)
     }
     fun saveToDatabase(userid:String, name:String, email:String, phone:String){
 

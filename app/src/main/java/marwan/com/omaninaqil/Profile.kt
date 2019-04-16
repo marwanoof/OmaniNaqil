@@ -1,12 +1,18 @@
 package marwan.com.omaninaqil
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcel
 import android.os.Parcelable
+import android.provider.MediaStore
 import android.support.annotation.RequiresApi
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
 import android.text.Editable
 import android.view.MotionEvent
 import android.view.View
@@ -22,7 +28,10 @@ import com.jpeng.jpspringmenu.MenuListener
 import com.jpeng.jpspringmenu.SpringMenu
 import com.shashank.sony.fancygifdialoglib.FancyGifDialog
 import com.singh.daman.proprogressviews.CircleArcProgress
+import marwan.com.Database.DatabaseHandler
 import marwan.com.model.User
+import java.io.ByteArrayInputStream
+import java.io.IOException
 
 @SuppressLint("ParcelCreator")
 class Profile : AppCompatActivity() , MenuListener, Parcelable {
@@ -41,13 +50,17 @@ class Profile : AppCompatActivity() , MenuListener, Parcelable {
     lateinit var phoneEdit:EditText
     lateinit var emailEdit:EditText
     lateinit var editSaveBtn:Button
+    lateinit var profileImage:ImageView
     private lateinit var progress: CircleArcProgress
     private lateinit var overlay:View
     lateinit var editIcon:ImageButton
+    var dbHandler: DatabaseHandler? = null
+    private val GALLERY = 1
+    private val CAMERA = 2
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
-
+        dbHandler = DatabaseHandler(this)
         progress = findViewById(R.id.circleProgress_profile)
         overlay = findViewById(R.id.overlay_view_profile)
 
@@ -59,6 +72,7 @@ class Profile : AppCompatActivity() , MenuListener, Parcelable {
         emailEdit = findViewById(R.id.email_profile)
         editSaveBtn = findViewById(R.id.edit_save)
         editIcon = findViewById(R.id.edit_icon)
+        profileImage = findViewById(R.id.profile_img)
 
         mSpringMenu = SpringMenu(this, R.layout.view_menu)
         mSpringMenu.setMenuListener(this)
@@ -79,6 +93,13 @@ class Profile : AppCompatActivity() , MenuListener, Parcelable {
     fun getData(){
         progress.visibility = View.VISIBLE
         overlay.visibility = View.VISIBLE
+        val img = dbHandler?.getProfileImg()
+        val imageStream = ByteArrayInputStream(img)
+        val theImage = BitmapFactory.decodeStream(imageStream)
+        val circularBitmapDrawable = RoundedBitmapDrawableFactory.create(resources, theImage)
+
+        circularBitmapDrawable.isCircular = true
+        profileImage.setImageDrawable(circularBitmapDrawable)
         val mDatabase = FirebaseDatabase.getInstance().getReference("users")
         val mAuth = FirebaseAuth.getInstance()
         var userui: FirebaseUser = mAuth.currentUser!!
@@ -137,6 +158,65 @@ class Profile : AppCompatActivity() , MenuListener, Parcelable {
         progress.visibility = View.VISIBLE
         overlay.visibility = View.VISIBLE
     }
+    fun editImage(view: View){
+        val pictureDialog = AlertDialog.Builder(this)
+        pictureDialog.setTitle("Select Action")
+        val pictureDialogItems = arrayOf("Select photo from gallery", "Capture photo from camera")
+        pictureDialog.setItems(pictureDialogItems
+        ) { dialog, which ->
+            when (which) {
+                0 -> choosePhotoFromGallary()
+                1 -> takePhotoFromCamera()
+            }
+        }
+        pictureDialog.show()
+    }
+    fun choosePhotoFromGallary() {
+        val galleryIntent = Intent(Intent.ACTION_PICK,
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+
+        startActivityForResult(galleryIntent, GALLERY)
+    }
+    private fun takePhotoFromCamera() {
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        startActivityForResult(intent, CAMERA)
+    }
+    public override fun onActivityResult(requestCode:Int, resultCode:Int, data: Intent?) {
+
+        super.onActivityResult(requestCode, resultCode, data)
+        /* if (resultCode == this.RESULT_CANCELED)
+         {
+         return
+         }*/
+        if (requestCode == GALLERY)
+        {
+            if (data != null)
+            {
+                val contentURI = data!!.data
+                try
+                {
+                    val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, contentURI)
+
+                    Toast.makeText(this@Profile, "Image Saved!", Toast.LENGTH_SHORT).show()
+                    profileImage.setImageBitmap(bitmap)
+
+                }
+                catch (e: IOException) {
+                    e.printStackTrace()
+                    Toast.makeText(this@Profile, "Failed!", Toast.LENGTH_SHORT).show()
+                }
+
+            }
+
+        }
+        else if (requestCode == CAMERA)
+        {
+            val thumbnail = data!!.extras!!.get("data") as Bitmap
+            profileImage.setImageBitmap(thumbnail)
+
+            Toast.makeText(this@Profile, "Image Saved!", Toast.LENGTH_SHORT).show()
+        }
+    }
     fun menuLeft(view: View){
         mSpringMenu.setDirection(SpringMenu.DIRECTION_LEFT)
         mSpringMenu.openMenu()
@@ -153,5 +233,8 @@ class Profile : AppCompatActivity() , MenuListener, Parcelable {
 
     override fun onProgressUpdate(value: Float, bouncing: Boolean) {
 
+    }
+    companion object {
+        private val IMAGE_DIRECTORY = "/demonuts"
     }
 }
