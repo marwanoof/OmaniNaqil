@@ -18,20 +18,24 @@
                 android:layout_alignParentTop="true"
         />
         <TextView
-                android:text="ناقل عمان"
+                android:text="بركة"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/textView6" android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true" android:textColor="@android:color/white" android:textSize="24sp" android:fontFamily="@font/sky"/>
+                android:layout_height="wrap_content" android:id="@+id/textView6"
+                android:textColor="@android:color/white" android:textSize="24sp" android:fontFamily="@font/sky"
+                android:layout_centerInParent="true"/>
         <ImageButton
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" app:srcCompat="@drawable/mainlogo" android:layout_alignParentEnd="true"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/menulogo"
+                android:layout_alignParentEnd="true"
                 android:id="@+id/mainlogo" android:background="@android:color/transparent"
                 android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
         <ImageButton
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" app:srcCompat="@drawable/mainmenu" android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true" android:id="@+id/menu" android:background="@android:color/transparent"
-                android:layout_alignParentLeft="true" android:layout_centerVertical="true"/>
+                android:layout_height="wrap_content" app:srcCompat="@drawable/mainmenu"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true" android:id="@+id/menu"
+                android:background="@android:color/transparent"
+                android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:onClick="menuLeft"/>
     </RelativeLayout>
     <LinearLayout
             android:orientation="vertical"
@@ -101,8 +105,10 @@
                 android:layout_height="wrap_content" android:layout_marginTop="20dp">
             <ImageButton
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" app:srcCompat="@drawable/mainmenusetting" android:id="@+id/setting"
-                    android:layout_weight="1" android:background="@android:color/transparent" android:layout_marginRight="40dp"/>
+                    android:layout_height="wrap_content" app:srcCompat="@drawable/mainmenusetting"
+                    android:id="@+id/setting"
+                    android:layout_weight="1" android:background="@android:color/transparent"
+                    android:layout_marginRight="40dp" android:onClick="toProfile"/>
             <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" app:srcCompat="@drawable/mainmenuoffer" android:id="@+id/offer"

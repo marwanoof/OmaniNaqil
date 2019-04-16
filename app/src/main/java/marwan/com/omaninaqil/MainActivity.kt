@@ -40,15 +40,13 @@ class MainActivity : Activity(), MenuListener, RadioGroup.OnCheckedChangeListene
 
         val listBeen = arrayOf<ListBean>(
             ListBean(R.mipmap.home, "الصفحة الرئيسية"),
-            ListBean(R.mipmap.trans, "عروض النقل"),
-            ListBean(R.mipmap.gold, "عروض ذهبية"),
-            ListBean(R.mipmap.repair, "خدمة إصلاح على الطريق"),
-            ListBean(R.mipmap.balance, "رصيد الشاحنات"),
-            ListBean(R.mipmap.pay, "المستحقات المالية")
+            ListBean(R.mipmap.trans, "طلب نقل حمولة"),
+            ListBean(R.mipmap.gold, "تتبع الحمولة"),
+            ListBean(R.mipmap.repair, "تسجيل الخروج")
         )
         val adapter = MyAdapter(this, listBeen)
         val listView = mSpringMenu.findViewById(R.id.test_listView) as ListView
-        listView.setAdapter(adapter)
+        listView.adapter = adapter
 
 
 

@@ -63,7 +63,16 @@ public class MyAdapter extends BaseAdapter
             public void onClick(View v) {
                 String pageName = mDatas[position].getTitle();
                 if (pageName.equals("الصفحة الرئيسية")){
-                    Intent goToPage = new Intent(context, TransportOffer.class);
+                    Intent goToPage = new Intent(context, MainMenuUser.class);
+                    context.startActivity(goToPage);
+                }else if (pageName.equals("طلب نقل حمولة")){
+                    Intent goToPage = new Intent(context, TransportPackeg.class);
+                    context.startActivity(goToPage);
+                }else if (pageName.equals("تتبع الحمولة")){
+                    Intent goToPage = new Intent(context, RequestMain.class);
+                    context.startActivity(goToPage);
+                }else if (pageName.equals("تسجيل الخروج")){
+                    Intent goToPage = new Intent(context, LoginPage.class);
                     context.startActivity(goToPage);
                 }
             }
