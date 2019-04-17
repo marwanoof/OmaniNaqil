@@ -9,6 +9,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
 import marwan.com.Database.DatabaseHandler
 
 
@@ -43,9 +44,17 @@ class Splash : AppCompatActivity() {
                 startActivity(next)
                 this.finish()
             }else{
-                var next = Intent(baseContext,LoginPage::class.java)
-                startActivity(next)
-                this.finish()
+                val user = FirebaseAuth.getInstance().currentUser
+                if (user != null) {
+                    var next = Intent(baseContext,MainMenuUser::class.java)
+                    startActivity(next)
+                    this.finish()
+                } else {
+                    var next = Intent(baseContext,LoginPage::class.java)
+                    startActivity(next)
+                    this.finish()
+                }
+
             }
 
         }, 6000)

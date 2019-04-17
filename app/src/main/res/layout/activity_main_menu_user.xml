@@ -28,7 +28,8 @@
                 android:layout_height="wrap_content" app:srcCompat="@drawable/menulogo"
                 android:layout_alignParentEnd="true"
                 android:id="@+id/mainlogo" android:background="@android:color/transparent"
-                android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
+                android:layout_alignParentRight="true" android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"/>
         <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" app:srcCompat="@drawable/mainmenu"
@@ -112,7 +113,20 @@
             <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" app:srcCompat="@drawable/mainmenuoffer" android:id="@+id/offer"
-                    android:layout_weight="1" android:background="@android:color/transparent"/>
+                    android:layout_weight="1" android:background="@android:color/transparent"
+                    android:onClick="specialOffer"/>
         </LinearLayout>
     </LinearLayout>
+    <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/overlay_view_main"
+            android:background="@color/common_google_signin_btn_text_light_default"/>
+    <com.singh.daman.proprogressviews.CircleArcProgress
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:circle_size="40dp"
+            app:color_circle="@color/garyBlue"
+            app:arc_radius="50dp"
+            app:arc_color="@color/orgl"
+            android:id="@+id/circleProgress_main"/>
 </RelativeLayout>

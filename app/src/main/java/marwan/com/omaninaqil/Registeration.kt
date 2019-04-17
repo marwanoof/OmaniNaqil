@@ -23,11 +23,17 @@ import com.google.android.gms.common.util.IOUtils.toByteArray
 import android.graphics.Bitmap
 
 import android.graphics.BitmapFactory
+import android.view.MotionEvent
+import android.widget.ListView
+import com.facebook.rebound.SpringConfig
+import com.jpeng.jpspringmenu.MenuListener
+import com.jpeng.jpspringmenu.SpringMenu
 import marwan.com.Database.DatabaseHandler
 import java.io.ByteArrayOutputStream
 
 
-class Registeration : AppCompatActivity() {
+class Registeration : AppCompatActivity() , MenuListener {
+
 
     lateinit var name1:EditText
     lateinit var phone:EditText
@@ -37,7 +43,7 @@ class Registeration : AppCompatActivity() {
     lateinit var condition:CheckBox
     private lateinit var progress: CircleArcProgress
     private lateinit var overlay:View
-
+    lateinit var mSpringMenu: SpringMenu
     var dbHandler: DatabaseHandler? = null
 
     //private lateinit var mAuth: FirebaseAuth
@@ -46,6 +52,21 @@ class Registeration : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registeration)
+        mSpringMenu = SpringMenu(this, R.layout.view_menu)
+        mSpringMenu.setMenuListener(this)
+        mSpringMenu.setFadeEnable(true)
+        mSpringMenu.setChildSpringConfig(SpringConfig.fromOrigamiTensionAndFriction(20.0, 5.0))
+        mSpringMenu.setDragOffset(0.4f)
+
+        val listBeen = arrayOf<ListBean>(
+            ListBean(R.mipmap.loginicon, "تسجيل الدخول"),
+            ListBean(R.mipmap.newsier, "مستخدم جديد"),
+            ListBean(R.mipmap.setting, "حول التطبيق")
+        )
+        val adapter = MyAdapter(this, listBeen)
+        val listView = mSpringMenu.findViewById(R.id.test_listView) as ListView
+        listView.adapter = adapter
+
         dbHandler = DatabaseHandler(this)
         name1 = findViewById(R.id.name_reg)
         phone = findViewById(R.id.phone_reg)
@@ -64,6 +85,10 @@ class Registeration : AppCompatActivity() {
        // database = FirebaseDatabase.getInstance().reference
     }
 
+    fun menuLeft(view: View){
+        mSpringMenu.setDirection(SpringMenu.DIRECTION_LEFT)
+        mSpringMenu.openMenu()
+    }
     override fun onStart() {
         super.onStart()
         //val currentUser = mAuth.currentUser
@@ -180,6 +205,19 @@ class Registeration : AppCompatActivity() {
 
 // pushing user to 'users' node using the userId
         mDatabase.child(userid).setValue(user)
+    }
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        return mSpringMenu.dispatchTouchEvent(ev)
+    }
+
+    override fun onMenuOpen() {
+    }
+
+    override fun onMenuClose() {
+    }
+
+    override fun onProgressUpdate(value: Float, bouncing: Boolean) {
+
     }
 /*
     @SuppressLint("StaticFieldLeak")

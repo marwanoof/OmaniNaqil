@@ -22,6 +22,9 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.jpeng.jpspringmenu.MenuListener
 import com.jpeng.jpspringmenu.SpringMenu
+import com.shashank.sony.fancygifdialoglib.FancyGifDialog
+import com.singh.daman.proprogressviews.CircleArcProgress
+import libs.mjn.prettydialog.PrettyDialog
 import marwan.com.model.User
 
 
@@ -38,7 +41,8 @@ class MainMenuUser : AppCompatActivity() , MenuListener, Parcelable {
 
     lateinit var nameProfile:TextView
     lateinit var mSpringMenu: SpringMenu
-
+    private lateinit var progress: CircleArcProgress
+    private lateinit var overlay:View
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,11 +59,19 @@ class MainMenuUser : AppCompatActivity() , MenuListener, Parcelable {
             ListBean(R.mipmap.home, "الصفحة الرئيسية"),
             ListBean(R.mipmap.trans, "طلب نقل حمولة"),
             ListBean(R.mipmap.track, "تتبع الحمولة"),
-            ListBean(R.mipmap.logout, "تسجيل الخروج")
+            ListBean(R.mipmap.logout, "تسجيل الخروج"),
+            ListBean(R.mipmap.setting, "حول التطبيق")
         )
         val adapter = MyAdapter(this, listBeen)
         val listView = mSpringMenu.findViewById(R.id.test_listView) as ListView
         listView.adapter = adapter
+
+        progress = findViewById(R.id.circleProgress_main)
+        overlay = findViewById(R.id.overlay_view_main)
+
+        progress.visibility = View.GONE
+        overlay.visibility = View.GONE
+
         getProfileDetails()
     }
     fun menuLeft(view: View){
@@ -81,6 +93,8 @@ class MainMenuUser : AppCompatActivity() , MenuListener, Parcelable {
 
     }
     fun getProfileDetails(){
+        progress.visibility = View.VISIBLE
+        overlay.visibility = View.VISIBLE
         val mDatabase = FirebaseDatabase.getInstance().getReference("users")
         val mAuth = FirebaseAuth.getInstance()
         var userui: FirebaseUser = mAuth.currentUser!!
@@ -90,6 +104,8 @@ class MainMenuUser : AppCompatActivity() , MenuListener, Parcelable {
                 val user = dataSnapshot.getValue(User::class.java)
 
                 nameProfile.text = user!!.name
+                progress.visibility = View.GONE
+                overlay.visibility = View.GONE
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -97,6 +113,13 @@ class MainMenuUser : AppCompatActivity() , MenuListener, Parcelable {
 
             }
         })
+    }
+    fun specialOffer(view: View){
+        PrettyDialog(this)
+            .setTitle("قريباً")
+            .setMessage("سيتم تفعيل هذه الخدمة قريباً")
+            .setIcon(R.drawable.undercons)
+            .show()
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {

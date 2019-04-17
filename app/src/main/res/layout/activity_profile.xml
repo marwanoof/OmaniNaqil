@@ -29,7 +29,8 @@
                 android:layout_height="wrap_content" app:srcCompat="@drawable/menulogo"
                 android:layout_alignParentEnd="true"
                 android:id="@+id/mainlogo" android:background="@android:color/transparent"
-                android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
+                android:layout_alignParentRight="true" android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"/>
         <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" app:srcCompat="@drawable/mainmenu"

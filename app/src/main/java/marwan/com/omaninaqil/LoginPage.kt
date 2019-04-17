@@ -29,9 +29,15 @@ class LoginPage : AppCompatActivity() {
 
         progress.visibility = View.GONE
         overlay.visibility = View.GONE
+
+
     }
     fun newAccountAction(view: View){
         var intent = Intent(baseContext, Registeration::class.java)
+        startActivity(intent)
+    }
+    fun resetPass(view: View){
+        var intent = Intent(baseContext, ResetPassword::class.java)
         startActivity(intent)
     }
     fun loginCheck(view: View){

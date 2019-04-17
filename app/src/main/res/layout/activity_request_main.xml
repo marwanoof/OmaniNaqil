@@ -20,24 +20,25 @@
                 android:layout_alignParentTop="true"
         />
         <TextView
-                android:text="الناقل العماني"
+                android:text="بركة"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/textView6"
                 android:textColor="@android:color/white" android:textSize="24sp" android:fontFamily="@font/sky"
                 android:layout_centerInParent="true"/>
         <ImageButton
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" app:srcCompat="@drawable/mainlogo"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/menulogo"
                 android:layout_alignParentEnd="true"
                 android:id="@+id/mainlogo" android:background="@android:color/transparent"
-                android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
+                android:layout_alignParentRight="true" android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"/>
         <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" app:srcCompat="@drawable/mainmenu"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true" android:id="@+id/menu"
                 android:background="@android:color/transparent"
-                android:layout_alignParentLeft="true" android:layout_centerVertical="true"/>
+                android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:onClick="menuLeft"/>
     </RelativeLayout>
     <ScrollView
             android:layout_width="match_parent"
@@ -101,7 +102,8 @@
                 <ImageButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" app:srcCompat="@drawable/qr" android:id="@+id/qr_btn"
-                        android:background="@android:color/transparent" android:layout_marginTop="5dp"/>
+                        android:background="@android:color/transparent" android:layout_marginTop="5dp"
+                        android:onClick="scan"/>
                 <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

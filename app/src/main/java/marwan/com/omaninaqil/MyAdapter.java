@@ -74,6 +74,14 @@ public class MyAdapter extends BaseAdapter
                 }else if (pageName.equals("تسجيل الخروج")){
                     Intent goToPage = new Intent(context, LoginPage.class);
                     context.startActivity(goToPage);
+                }else if (pageName.equals("تسجيل الدخول")){
+                    Intent goToPage = new Intent(context, LoginPage.class);
+                    context.startActivity(goToPage);
+                }else if (pageName.equals("مستخدم جديد")){
+                    Intent goToPage = new Intent(context, Registeration.class);
+                    context.startActivity(goToPage);
+                }else if (pageName.equals("حول التطبيق")){
+
                 }
             }
         });
