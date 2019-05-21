@@ -15,7 +15,7 @@ android {
     }
     compileSdkVersion 27
     defaultConfig {
-        applicationId "marwan.com.omaninaqil"
+        applicationId "unus.com.omaninaqil"
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 2

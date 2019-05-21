@@ -154,7 +154,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" android:id="@+id/textView12" android:layout_weight="1"
                             android:fontFamily="@font/sky" android:textColor="@android:color/black"
-                            android:text="@string/condition" android:layout_marginRight="5dp"/>
+                            android:text="@string/condition" android:layout_marginRight="5dp"
+                            android:onClick="privacyView"/>
                     <CheckBox
                             android:text="أوافق على"
                             android:layout_width="wrap_content"

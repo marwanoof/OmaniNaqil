@@ -1,60 +1,37 @@
 {
   "project_info": {
-    "project_number": "33497600161",
-    "firebase_url": "https://omaninaqil.firebaseio.com",
-    "project_id": "omaninaqil",
-    "storage_bucket": "omaninaqil.appspot.com"
+    "project_number": "397681737059",
+    "firebase_url": "https://barakah-dd235.firebaseio.com",
+    "project_id": "barakah-dd235",
+    "storage_bucket": "barakah-dd235.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:33497600161:android:c0046062835d9042",
+        "mobilesdk_app_id": "1:397681737059:android:40a20d220cff4433",
         "android_client_info": {
-          "package_name": "marwan.com.omaninaqil"
+          "package_name": "unus.com.omaninaqil"
         }
       },
       "oauth_client": [
         {
-          "client_id": "33497600161-8m42b0a3g8502llbi5ap9rju1ugem1rl.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "marwan.com.omaninaqil",
-            "certificate_hash": "39b252e17dabf606573591f4294d0c02646e13b2"
-          }
-        },
-        {
-          "client_id": "33497600161-n0hoeui5cendl5bbr05l1cjn9ag67ic6.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "marwan.com.omaninaqil",
-            "certificate_hash": "55f03c647fd54ab48749af1ad78eee926fe2fcf0"
-          }
-        },
-        {
-          "client_id": "33497600161-i7rvpdqvlfcbj5i5tiimv2btg3f05onu.apps.googleusercontent.com",
+          "client_id": "397681737059-7gv7d1cc9ith5102qpu8fin8ac15ahoi.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyClE6Q1ErRvySf338xe0QmGYazM-XLDCoA"
+          "current_key": "AIzaSyANqllwj1CctYsgN1ppHQkCkUxdfmbAYNs"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "33497600161-i7rvpdqvlfcbj5i5tiimv2btg3f05onu.apps.googleusercontent.com",
+              "client_id": "397681737059-7gv7d1cc9ith5102qpu8fin8ac15ahoi.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }

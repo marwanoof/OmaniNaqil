@@ -51,7 +51,8 @@
                     android:text="نسيت كلمة المرور؟"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:id="@+id/forget_pass" android:fontFamily="@font/sky"
-                    android:layout_centerVertical="true" android:layout_marginLeft="50dp" android:onClick="resetPass"/>
+                    android:layout_centerVertical="true" android:onClick="resetPass"
+                    android:layout_alignLeft="@+id/passEdit"/>
         </RelativeLayout>
         <Button
                 android:text="تسجيل الدخول"

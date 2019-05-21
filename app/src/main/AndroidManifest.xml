@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="marwan.com.omaninaqil">
+          package="unus.com.omaninaqil">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -20,9 +20,9 @@
             android:label="@string/app_name"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ResetPassword">
+        <activity android:name="unus.com.omaninaqil.ResetPassword">
         </activity>
-        <activity android:name=".Profile">
+        <activity android:name="unus.com.omaninaqil.Profile">
         </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -37,12 +37,12 @@
                 android:value="@string/google_maps_key"/>
 
         <activity
-                android:name=".LocationMap"
+                android:name="unus.com.omaninaqil.LocationMap"
                 android:label="@string/title_activity_location_map"
                 android:theme="@style/DialogTheme"/>
-        <activity android:name=".StartPage"/>
-        <activity android:name=".RequestDetails"/>
-        <activity android:name=".Splash">
+        <activity android:name="unus.com.omaninaqil.StartPage"/>
+        <activity android:name="unus.com.omaninaqil.RequestDetails"/>
+        <activity android:name="unus.com.omaninaqil.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -50,25 +50,25 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".MainActivity"
+                android:name="unus.com.omaninaqil.MainActivity"
                 android:label="@string/title_activity_main"
                 android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
-        <activity android:name=".TransportOffer"/>
-        <activity android:name=".LoginPage"/>
-        <activity android:name=".MainMenuUser"/>
-        <activity android:name=".Registeration"/>
-        <activity android:name=".TransportPackeg"/>
+        <activity android:name="unus.com.omaninaqil.TransportOffer"/>
+        <activity android:name="unus.com.omaninaqil.LoginPage"/>
+        <activity android:name="unus.com.omaninaqil.MainMenuUser"/>
+        <activity android:name="unus.com.omaninaqil.Registeration"/>
+        <activity android:name="unus.com.omaninaqil.TransportPackeg"/>
         <activity
-                android:name=".MapsActivity"
+                android:name="unus.com.omaninaqil.MapsActivity"
                 android:excludeFromRecents="true"
                 android:label="@string/title_activity_maps"
                 android:theme="@style/DialogTheme"/>
-        <activity android:name=".TransRequestFinal"/>
-        <activity android:name=".RequestMain"/>
+        <activity android:name="unus.com.omaninaqil.TransRequestFinal"/>
+        <activity android:name="unus.com.omaninaqil.RequestMain"/>
     </application>
 
 </manifest>
