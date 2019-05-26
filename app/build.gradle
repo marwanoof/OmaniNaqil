@@ -9,7 +9,7 @@ android {
         config {
             keyAlias 'key0'
             keyPassword '2009599148'
-            storeFile file('/Users/marwan/StudioProjects/OmaniNaqil/key')
+            storeFile file('C:/Users/User/StudioProjects/OmaniNaqil/key.jks')
             storePassword '2009599148'
         }
     }
@@ -18,8 +18,8 @@ android {
         applicationId "unus.com.omaninaqil"
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 2
-        versionName '2.1'
+        versionCode 3
+        versionName '3.1'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.config
     }

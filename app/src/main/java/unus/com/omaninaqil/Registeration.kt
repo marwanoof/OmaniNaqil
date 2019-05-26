@@ -60,8 +60,8 @@ class Registeration : AppCompatActivity() , MenuListener {
 
         val listBeen = arrayOf<ListBean>(
             ListBean(R.mipmap.loginicon, "تسجيل الدخول"),
-            ListBean(R.mipmap.newsier, "مستخدم جديد"),
-            ListBean(R.mipmap.setting, "حول التطبيق")
+            ListBean(R.mipmap.newsier, "مستخدم جديد")
+
         )
         val adapter = MyAdapter(this, listBeen)
         val listView = mSpringMenu.findViewById(R.id.test_listView) as ListView

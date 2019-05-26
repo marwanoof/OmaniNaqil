@@ -54,6 +54,7 @@ class DatabaseHandler(context: Context) :
         db?.insert("PlaceDir", null, valuesPlace)
        // db?.close()
     }
+
     fun addProfileImg(img:ByteArray){
         val db = this.writableDatabase
         val values = ContentValues()

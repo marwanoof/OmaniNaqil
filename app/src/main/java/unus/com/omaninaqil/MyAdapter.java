@@ -81,7 +81,8 @@ public class MyAdapter extends BaseAdapter
                     Intent goToPage = new Intent(context, Registeration.class);
                     context.startActivity(goToPage);
                 }else if (pageName.equals("حول التطبيق")){
-
+                    Intent goToPage = new Intent(context, AboutApp.class);
+                    context.startActivity(goToPage);
                 }
             }
         });

@@ -28,6 +28,7 @@ import com.singh.daman.proprogressviews.CircleArcProgress
 import unus.com.Database.DatabaseHandler
 import unus.com.model.User
 import java.io.ByteArrayInputStream
+import java.io.ByteArrayOutputStream
 import java.io.IOException
 
 @SuppressLint("ParcelCreator")
@@ -80,7 +81,8 @@ class Profile : AppCompatActivity() , MenuListener, Parcelable {
             ListBean(R.mipmap.home, "الصفحة الرئيسية"),
             ListBean(R.mipmap.trans, "طلب نقل حمولة"),
             ListBean(R.mipmap.track, "تتبع الحمولة"),
-            ListBean(R.mipmap.logout, "تسجيل الخروج")
+            ListBean(R.mipmap.logout, "تسجيل الخروج"),
+            ListBean(R.mipmap.setting, "حول التطبيق")
         )
         val adapter = MyAdapter(this, listBeen)
         val listView = mSpringMenu.findViewById(R.id.test_listView) as ListView
@@ -90,13 +92,18 @@ class Profile : AppCompatActivity() , MenuListener, Parcelable {
     fun getData(){
         progress.visibility = View.VISIBLE
         overlay.visibility = View.VISIBLE
-        val img = dbHandler?.getProfileImg()
-        val imageStream = ByteArrayInputStream(img)
-        val theImage = BitmapFactory.decodeStream(imageStream)
-        val circularBitmapDrawable = RoundedBitmapDrawableFactory.create(resources, theImage)
+        val img:ByteArray? = dbHandler?.getProfileImg()
+        if (img!!.isEmpty()){
+           saveDefultProfileImg()
+        }else{
+            val imageStream = ByteArrayInputStream(img)
+            val theImage = BitmapFactory.decodeStream(imageStream)
+            val circularBitmapDrawable = RoundedBitmapDrawableFactory.create(resources, theImage)
 
-        circularBitmapDrawable.isCircular = true
-        profileImage.setImageDrawable(circularBitmapDrawable)
+            circularBitmapDrawable.isCircular = true
+            profileImage.setImageDrawable(circularBitmapDrawable)
+        }
+
         val mDatabase = FirebaseDatabase.getInstance().getReference("users")
         val mAuth = FirebaseAuth.getInstance()
         var userui: FirebaseUser = mAuth.currentUser!!
@@ -118,7 +125,17 @@ class Profile : AppCompatActivity() , MenuListener, Parcelable {
             }
         })
     }
+    fun saveDefultProfileImg(){
+        val image = BitmapFactory.decodeResource(
+            resources,
+            R.drawable.userprofile
+        )
 
+        val stream = ByteArrayOutputStream()
+        image.compress(Bitmap.CompressFormat.JPEG, 100, stream)
+        val imageInByte = stream.toByteArray()
+        dbHandler?.addProfileImg(imageInByte)
+    }
     fun editBtn(view: View){
         var btnText:String = editSaveBtn.text.toString()
 
